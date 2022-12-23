@@ -67,7 +67,7 @@ def start_training(character: Character) -> str:
     Принимает на вход имя и класс персонажа.
     Возвращает сообщения о результатах цикла тренировки персонажа.
     """
-    # Замените конструкцию условных операторов на словарь.
+
     commands: dict = {
         'attack': character.attack(),
         'defence': character.defence(),
@@ -81,10 +81,6 @@ def start_training(character: Character) -> str:
     cmd: None = None
     while cmd != 'skip':
         cmd = input('Введи команду: ')
-        # Вместо блока условных операторов добавьте условие
-        # принадлежности введённой команды словарю.
-        # В функции print() будет вызываться метод класса,
-        # который соответствует введённой команде.
         if cmd in commands.keys():
             print(f'{commands[cmd]}')
     return 'Тренировка окончена.'
@@ -102,7 +98,6 @@ def choice_char_class(char_name: str) -> Character:
                                'за которого хочешь играть: Воитель — warrior, '
                                'Маг — mage, Лекарь — healer: ')
         char_class: Character = game_classes[selected_class](char_name)
-        # Вывели в терминал описание персонажа.
         print(char_class)
         approve_choice = input('Нажми (Y), чтобы подтвердить выбор, '
                                'или любую другую кнопку, '
